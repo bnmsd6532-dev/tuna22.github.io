@@ -1,4 +1,4 @@
-html_content = '''<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8">
@@ -679,9 +679,3 @@ html_content = '''<!DOCTYPE html>
 
 </body>
 </html>
-'''
-
-with open('price_calculator.html', 'w', encoding='utf-8') as f:
-    f.write(html_content)
-
-print("Created price_calculator.html successfully.")
