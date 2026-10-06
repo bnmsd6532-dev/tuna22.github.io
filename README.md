@@ -543,7 +543,6 @@
     if (counts[type] + delta >= 1 && counts[type] + delta <= 10) {
       counts[type] += delta;
       document.getElementById(`${type}_count`).innerText = counts[type];
-      // 如果按加減，自動勾選對應核取方框
       document.getElementById(`${type}_check`).checked = true;
       updateCalc();
     }
@@ -558,7 +557,6 @@
       </div>
     `;
 
-    // 表情加購
     const expChecked = document.getElementById('exp_check').checked;
     if (expChecked) {
       const expTotal = counts.exp * 500;
@@ -571,7 +569,6 @@
       `;
     }
 
-    // 髮型切換
     const hairChecked = document.getElementById('hair_check').checked;
     if (hairChecked) {
       subtotal += 3000;
@@ -583,7 +580,6 @@
       `;
     }
 
-    // 果凍物理
     const physicsChecked = document.getElementById('physics_check').checked;
     if (physicsChecked) {
       subtotal += 2500;
@@ -597,7 +593,6 @@
 
     let finalTotal = subtotal;
 
-    // 商業買斷 (x1.5)
     const commChecked = document.getElementById('commercial_check').checked;
     if (commChecked) {
       const commFee = subtotal * 0.5;
@@ -610,7 +605,6 @@
       `;
     }
 
-    // 急件加急 (+30%)
     const expressChecked = document.getElementById('express_check').checked;
     if (expressChecked) {
       const expressFee = subtotal * 0.3;
@@ -628,28 +622,28 @@
   }
 
   function copySummary() {
-    let summaryText = `【委託估價單明細】\\n`;
-    summaryText += `------------------\\n`;
-    summaryText += `• 基礎方案：${currentPlan.name} ($${currentPlan.price.toLocaleString()})\\n`;
+    let summaryText = `【委託估價單明細】\n`;
+    summaryText += `------------------\n`;
+    summaryText += `• 基礎方案：${currentPlan.name} ($${currentPlan.price.toLocaleString()})\n`;
 
     if (document.getElementById('exp_check').checked) {
-      summaryText += `• 特殊表情：${counts.exp} 個 ($${(counts.exp * 500).toLocaleString()})\\n`;
+      summaryText += `• 特殊表情：${counts.exp} 個 ($${(counts.exp * 500).toLocaleString()})\n`;
     }
     if (document.getElementById('hair_check').checked) {
-      summaryText += `• 額外髮型/服裝切換 ($3,000)\\n`;
+      summaryText += `• 額外髮型/服裝切換 ($3,000)\n`;
     }
     if (document.getElementById('physics_check').checked) {
-      summaryText += `• 高階 Q 彈果凍物理 ($2,500)\\n`;
+      summaryText += `• 高階 Q 彈果凍物理 ($2,500)\n`;
     }
     if (document.getElementById('commercial_check').checked) {
-      summaryText += `• 商業授權買斷 (加收 50%)\\n`;
+      summaryText += `• 商業授權買斷 (加收 50%)\n`;
     }
     if (document.getElementById('express_check').checked) {
-      summaryText += `• 急件加急處理 (加收 30%)\\n`;
+      summaryText += `• 急件加急處理 (加收 30%)\n`;
     }
 
-    summaryText += `------------------\\n`;
-    summaryText += `預估總金額：${document.getElementById('total_price').innerText}\\n`;
+    summaryText += `------------------\n`;
+    summaryText += `預估總金額：${document.getElementById('total_price').innerText}\n`;
     summaryText += `（此金額僅供參考，實際費用以雙方討論後定案為主）`;
 
     navigator.clipboard.writeText(summaryText).then(() => {
@@ -673,7 +667,6 @@
     selectPlan(firstPlan, 'Character', 6000, '角色立繪設計');
   }
 
-  // 初始化
   updateCalc();
 </script>
 
